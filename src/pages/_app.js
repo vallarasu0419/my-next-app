@@ -4,18 +4,44 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Box } from "@mui/material";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
-  // useEffect(() => {
-  //   import("bootstrap/dist/js/bootstrap.bundle.min.js");
-  // }, []);
-
-  return  <>
+  return (
+    <>
+      <Head>
+        <title>Create | Next App</title>
+        <meta name="user list" content="vallarasu next user list" />
+      </Head>
       <Header />
-      <Box sx={{padding:10}}>
-          <Component {...pageProps} />
+
+      <Box
+        sx={{
+          minHeight: "calc(100vh - 64px - 64px)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Component {...pageProps} />
       </Box>
-    
-      <Footer />
-    </>;
+
+      <Box
+        component="footer"
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          // bgcolor: "background.paper",
+          // boxShadow: 1,
+          // py: 2,
+          // textAlign: "center",
+        }}
+      >
+        <Footer />
+      </Box>
+    </>
+  );
 }

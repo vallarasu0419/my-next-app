@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -17,21 +18,28 @@ const UserDetails = () => {
   if (!user) return <div>Loading...</div>;
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>User Details</h2>
-      <p>
-        <strong>Name:</strong> {user.name}
-      </p>
-      <p>
-        <strong>Email:</strong> {user.email}
-      </p>
-      <p>
-        <strong>Phone:</strong> {user.phone}
-      </p>
-      <p>
-        <strong>Website:</strong> {user.website}
-      </p>
-    </div>
+    <>
+      <Head>
+        <title>Next App | User Details</title>
+        <meta name="user details" content="vallarasu next user details" />
+      </Head>
+
+      <div>
+        <h2>User Details</h2>
+        <p>
+          <strong>Name:</strong> {user.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {user.phone}
+        </p>
+        <p>
+          <strong>Website:</strong> {user.website}
+        </p>
+      </div>
+    </>
   );
 };
 

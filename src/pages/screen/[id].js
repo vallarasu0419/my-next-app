@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 
 // // This function runs at build time to generate paths for each user
@@ -46,21 +47,27 @@ export const getStaticProps = async ({ params }) => {
 
 const UserDetails = ({ user }) => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>User Details</h2>
-      <p>
-        <strong>Name:</strong> {user.name}
-      </p>
-      <p>
-        <strong>Email:</strong> {user.email}
-      </p>
-      <p>
-        <strong>Phone:</strong> {user.phone}
-      </p>
-      <p>
-        <strong>Website:</strong> {user.website}
-      </p>
-    </div>
+    <>
+      <Head>
+        <title>Next App | User Details</title>
+        <meta name="user details" content="vallarasu next user details" />
+      </Head>
+      <div style={{ padding: "20px" }}>
+        <h2>User Details</h2>
+        <p>
+          <strong>Name:</strong> {user.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {user.phone}
+        </p>
+        <p>
+          <strong>Website:</strong> {user.website}
+        </p>
+      </div>
+    </>
   );
 };
 

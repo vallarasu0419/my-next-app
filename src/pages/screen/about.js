@@ -2,6 +2,8 @@
 
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
+import { Chip } from "@mui/material";
 
 const About = () => {
   const router = useRouter();
@@ -18,8 +20,12 @@ const About = () => {
 
   return (
     <div>
+      <Head>
+        <title>Next App | About</title>
+        <meta name="about" content="vallarasu next about" />
+      </Head>
       <h1>About Page</h1>
-      <button onClick={handleNavigate}>Go to Service</button>
+      <Chip label="Go to Service" clickable onClick={() => handleNavigate()} />
     </div>
   );
 };
